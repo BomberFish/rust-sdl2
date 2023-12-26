@@ -133,7 +133,7 @@ fn compile_sdl2(sdl2_build_path: &Path, target_os: &str) -> PathBuf {
     }
 
     if target_os == "ios" {
-        cfg.define("CMAKE_OSX_SYSROOT", "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/")
+        cfg.define("CMAKE_OSX_SYSROOT", "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/");
     }
 
     if cfg!(feature = "static-link") {
