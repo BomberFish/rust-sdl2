@@ -132,6 +132,10 @@ fn compile_sdl2(sdl2_build_path: &Path, target_os: &str) -> PathBuf {
         cfg.define("VIDEO_OPENGLES", "OFF");
     }
 
+    if target_os == "ios" {
+        cfg.define("CMAKE_OSX_SYSROOT", "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/")
+    }
+
     if cfg!(feature = "static-link") {
         cfg.define("SDL_SHARED", "OFF");
         cfg.define("SDL_STATIC", "ON");
