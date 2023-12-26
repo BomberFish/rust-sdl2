@@ -133,7 +133,8 @@ fn compile_sdl2(sdl2_build_path: &Path, target_os: &str) -> PathBuf {
     }
 
     if target_os == "ios" {
-        cfg.define("CMAKE_OSX_SYSROOT", "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/");
+        cfg.define("CMAKE_OSX_SYSROOT", "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/"); // idk if this is some jank on my dev system
+        cfg.define("DCMAKE_OSX_DEPLOYMENT_TARGET", "11.0"); // this either sets it to iOS 11.0 or macOS 11.0. either should be fine, right?
     }
 
     if cfg!(feature = "static-link") {
